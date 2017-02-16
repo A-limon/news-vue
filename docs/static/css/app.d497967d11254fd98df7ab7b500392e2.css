@@ -1,11 +1,11 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 231301 */
-  src: url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.eot');
-  src: url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot');
+  src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -46,6 +46,21 @@ body {
   display:-ms-flexbox;
   display:flex;
 }
+.g-show-container {
+  opacity: 0;
+}
+.g-show {
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+.g-show-transition {
+  transition: all .3s ease;
+  opacity: 1;
+}
+.g-show-enter, 
+.g-show-leave {
+  opacity: 0;
+}
 
 .nav[data-v-839468f2] {
   width: 10rem;
@@ -68,6 +83,10 @@ body {
   -ms-flex: 1;
       flex: 1;
   text-align: center;
+  transition: color 0.5s;
+}
+.nav .item.active[data-v-839468f2] {
+  color: #3ca3c7;
 }
 
 .foryou h1[data-v-4044a262] {
@@ -370,6 +389,9 @@ body {
 
 .channels[data-v-514372a9] {
   width: 10rem;
+}
+.channels .main[data-v-514372a9] {
+  width: 10rem;
   overflow: hidden;
   -ms-flex-line-pack: center;
       align-content: center;
@@ -445,6 +467,7 @@ body {
   display: block;
   width: 100%;
   border: 5px solid #fff;
+  transition: border 0.5s;
 }
 .view-list .view img.selected[data-v-0935eef2] {
   border: 5px solid #ff9217;
@@ -573,4 +596,40 @@ body {
   font-size: 42px;
 }
 
-/*# sourceMappingURL=app.764a9d93f31b1848a6fe830c88ac7dbf.css.map*/
+.loading[data-v-1648f51a] {
+  position: fixed;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 1.333333rem;
+  height: 1.333333rem;
+  z-index: 100;
+  text-align: center;
+}
+.loading .iconfont[data-v-1648f51a] {
+  font-size: 40px;
+  color: #3ca3c7;
+  animation: loading 2s infinite;
+}
+@keyframes loading {
+from {
+    transform: rotate(0);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+[data-dpr="2"] .loading .iconfont[data-v-1648f51a] {
+  font-size: 80px;
+}
+[data-dpr="3"] .loading .iconfont[data-v-1648f51a] {
+  font-size: 120px;
+}
+
+/*# sourceMappingURL=app.d497967d11254fd98df7ab7b500392e2.css.map*/
