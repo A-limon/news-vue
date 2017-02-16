@@ -2,15 +2,18 @@
   <div id="app">
     <router-view></router-view>
     <NewsNav></NewsNav>
+    <Loading></Loading>
   </div>
 </template>
 
 <script>
 import NewsNav from './components/NewsNav'
+import Loading from './components/Loading'
 export default {
   name: 'app',
   components: {
-    NewsNav
+    NewsNav,
+    Loading
   }
 }
 </script>
@@ -18,11 +21,11 @@ export default {
 <style>
   @font-face {
     font-family: 'iconfont';  /* project id 231301 */
-    src: url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.eot');
-    src: url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_my2jl9dh2hu84cxr.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot');
+    src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.woff') format('woff'),
+    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.svg#iconfont') format('svg');
   }
   .iconfont {
     font-family: "iconfont" !important;
@@ -61,5 +64,20 @@ export default {
   }
   .l-flex {
     display:flex;
+  }
+  .g-show-container {
+    opacity: 0;
+  }
+  .g-show {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+  .g-show-transition {
+    transition: all .3s ease;
+    opacity: 1;
+  }
+  .g-show-enter, 
+  .g-show-leave {
+    opacity: 0;
   }
 </style>

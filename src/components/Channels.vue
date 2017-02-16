@@ -1,9 +1,11 @@
 <template>
-  <div class="channels l-flex">
+  <div class="channels">
     <h1>Channels</h1>
-    <template v-for="item in list">
-      <ChannelItem :item="item"></ChannelItem>
-    </template>
+    <div class="g-show-container l-flex main" :class="{'g-show': loaded}">
+      <template v-for="item in list">
+        <ChannelItem :item="item"></ChannelItem>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -16,7 +18,6 @@ export default {
   data () {
     return {
       loaded: false,
-      isFetching: false,
       list: {}
     }
   },
@@ -29,16 +30,21 @@ export default {
   },
   methods: {
     fetchChannels () {
-      this.isFetching = true
+      eventBus.$emit('show-loading')
       axios.get(SETTING.ChannelsAPI)
       .then(function (response) {
         if (response !== undefined && response.data.code === 1) {
           this.$data.list = response.data.data
           this.$data.loaded = true
-          this.$data.isFetching = false
+        } else {
+          alert('Sorry We Have Some Error, Please Reload This Page')
+          console.error(response.data)
         }
+        eventBus.$emit('close-loading')
       }.bind(this))
       .catch(function (error) {
+        eventBus.$emit('close-loading')
+        alert('Sorry We Have Some Error, Please Reload This Page')
         console.error(error)
       })
     }
@@ -51,6 +57,9 @@ export default {
 
 <style scoped>
   .channels {
+    width: 10rem;
+  }
+  .channels .main {
     width: 10rem;
     overflow: hidden;
     align-content: center;

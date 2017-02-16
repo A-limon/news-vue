@@ -31,7 +31,7 @@
       <p class="desc">
         News Source: <a href="https://newsapi.org/">News API</a>.<br/>
         All News Updated Every 30 Mins. <br/>
-        Project Source: <a href="">Github</a>.
+        Project Source: <a href="https://github.com/A-limon/news-vue">Github</a>.
       </p>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="news g-show-container" :class="{'g-show': loaded}">
     <template v-for="item in list">
       <NewsItem :item="item" v-if="listView === 'A'"></NewsItem>
       <NewsItemCard :item="item" v-else></NewsItemCard>
@@ -19,7 +19,6 @@ export default {
   data () {
     return {
       loaded: false,
-      isFetching: false,
       list: {},
       id: '',
       listView: window.ListView ? window.ListView : 'A'
@@ -45,7 +44,7 @@ export default {
       eventBus.$emit('loaded-news', id)
     },
     fetchNews () {
-      this.isFetching = true
+      eventBus.$emit('show-loading')
       axios.get(SETTING.NewsAPI, {
         params: {
           source: this.source,
@@ -59,9 +58,15 @@ export default {
           this.$data.loaded = true
           this.$data.isFetching = false
           this.noticeSource(this.$data.id)
+        } else {
+          alert('Sorry We Have Some Error, Please Reload This Page')
+          console.error(response.data)
         }
+        eventBus.$emit('close-loading')
       }.bind(this))
       .catch(function (error) {
+        eventBus.$emit('close-loading')
+        alert('Sorry We Have Some Error, Please Reload This Page')
         console.error(error)
       })
     }

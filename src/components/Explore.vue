@@ -1,10 +1,10 @@
 <template>
   <div class="explore">
     <template v-if="loaded">
-      <h1>HOT</h1>
+      <h1>Hot</h1>
       <HotNews :item="recommend"></HotNews>
       <h1>Recommend</h1>
-      <div class="recommend-news l-flex">
+      <div class="recommend-news l-flex g-show-container" :class="{'g-show': loaded}">
         <template v-for="item in others">
           <HotNewsCard :item="item"></HotNewsCard>
         </template>
@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     fetchData () {
+      eventBus.$emit('show-loading')
       axios.get(SETTING.ExploreAPI)
       .then(function (response) {
         if (response.data && response.data.code === 1) {
@@ -44,15 +45,21 @@ export default {
           this.$data.recommend = response.data.data[0]
           response.data.data.shift()
           this.$data.others = response.data.data
+        } else {
+          alert('Sorry We Have Some Error, Please Reload This Page')
+          console.error(response.data)
         }
+        eventBus.$emit('close-loading')
       }.bind(this))
       .catch(function (error) {
+        eventBus.$emit('close-loading')
+        alert('Sorry We Have Some Error, Please Reload This Page')
         console.error(error)
       })
     }
   },
   created () {
-  	this.fetchData()
+    this.fetchData()
   }
 }
 </script>
