@@ -141,6 +141,7 @@ export default {
     display: block;
     width: 100%;
     border: 5px solid #fff;
+    transition: border 0.5s;
   }
   .view-list .view img.selected {
     border: 5px solid #ff9217;
