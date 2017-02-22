@@ -19,13 +19,12 @@ export default {
 </script>
 
 <style>
-  @font-face {
-    font-family: 'iconfont';  /* project id 231301 */
-    src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot');
-    src: url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.woff') format('woff'),
-    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_afnyjh0ozzqqto6r.svg#iconfont') format('svg');
+  @font-face {font-family: "iconfont";
+    src: url('../static/font/iconfont.eot?t=1487751947737'); /* IE9*/
+    src: url('../static/font/iconfont.eot?t=1487751947737#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../static/font/iconfont.woff?t=1487751947737') format('woff'), /* chrome, firefox */
+    url('../static/font/iconfont.ttf?t=1487751947737') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../static/font/iconfont.svg?t=1487751947737#iconfont') format('svg'); /* iOS 4.1- */
   }
   .iconfont {
     font-family: "iconfont" !important;
